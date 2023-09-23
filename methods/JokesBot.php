@@ -31,7 +31,7 @@ class JokesBot
         $result = executeQuery($sql);
 
         if ($result) {
-            $row = $result->fetch_assoc();
+            $row = $result;
             return $row['joke'];
         } else {
             return "Failed to retrieve a joke from the database.";

@@ -1,7 +1,12 @@
 <?php
-function makeHttpRequest($path_url, $method = 'GET', $params = array()) {
+function makeHttpRequest($path_url, $method = 'GET', $params = array(), $newbase = false) {
 
-    $url = INSTANCE_URL . $path_url;
+    // header instance url
+    if($newbase) {
+        $url = $path_url;
+    } else {
+        $url = INSTANCE_URL . $path_url;
+    }
 
     $params["user_token"] = FROM_ID;
     // Construct the URL with query parameters for GET requests
@@ -48,6 +53,7 @@ function makeHttpRequest($path_url, $method = 'GET', $params = array()) {
     // Close cURL session
     curl_close($ch);
 
+    DebugLogger::dump($response);
     // Return the response
     return $response;
 }

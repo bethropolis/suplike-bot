@@ -3,11 +3,14 @@
 class Bot
 {
     public $joke;
+    public $quote;
     public $create;
+
 
     public function __construct()
     {
         $this->joke = new JokesBot();
+        $this->quote = new QuotesBot();
         $this->create = new CreateBot();
     }
 
@@ -24,7 +27,7 @@ class Bot
             // Check if the handler class exists
             if (class_exists($handlerClassName)) {
                 //DebugLogger::dump($handlerClassName);
-                
+
                 $handler = new $handlerClassName();
                 $handler->load($payloadData->data);
             } else {

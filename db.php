@@ -53,8 +53,12 @@ function executeQuery($sql, $params = array())
 
     // Execute the statement
     if ($stmt->execute()) {
-        return $stmt;
-    } else {
+        $result = $stmt->get_result();
+        if (isset($result->num_rows) && $result->num_rows > 0) {
+          return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        return;
+      } else {
         handleDatabaseError("SQL execution error");
         return false;
     }

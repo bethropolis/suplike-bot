@@ -4,7 +4,7 @@ class CreateBot
 {
     private $endpoint =  "/api/v1/post/";
 
-    public function send($content, $type, $repost = false)
+    public function send($content, $type, $repost = null)
     {
 
         $data = array(
