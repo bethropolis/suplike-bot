@@ -6,6 +6,8 @@ class ChatBot
 
     private $bot_id = FROM_ID;
 
+    private $bot_no = 79;
+
     public function send($message, $to)
     {
         // Prepare the data for the HTTP request
