@@ -18,3 +18,5 @@ php cmd.php DEBUG_ENABLED:true
 ```
 
 [DEMO](https://bethro.alwaysdata.net/profile?id=05dab91c3813df210c59fb73e2e5)
+
+License MIT
